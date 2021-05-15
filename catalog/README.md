@@ -1,4 +1,4 @@
-# flutagram
+# catalog
 
 A new Flutter project.
 
