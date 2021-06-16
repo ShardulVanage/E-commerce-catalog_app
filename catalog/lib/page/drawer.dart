@@ -11,7 +11,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Colors.deepPurple,
+        color: Colors.black87,
         child: ListView(
           physics: BouncingScrollPhysics(),
           padding: EdgeInsets.zero,
@@ -20,12 +20,15 @@ class _DrawerScreenState extends State<DrawerScreen> {
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.deepPurple[400],
+                  color: Colors.black38,
                 ),
                 margin: EdgeInsets.zero,
                 accountEmail: Text('sv@gmail.com'),
                 accountName: Text('Shardul Vanage'),
-                currentAccountPicture: CircleAvatar(),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://images.cdn4.stockunlimited.net/preview1300/avatar-icon_1947118.jpg"),
+                ),
               ),
             ),
             ListTile(
