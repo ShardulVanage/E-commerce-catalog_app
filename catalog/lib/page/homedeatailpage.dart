@@ -1,9 +1,9 @@
-import 'package:catalog/Theme/theme.dart';
-import 'package:catalog/model/catalog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-//import 'package:velocity_x/velocity_x.dart';
+
+import 'package:catalog/Theme/theme.dart';
+import 'package:catalog/model/catalog.dart';
 
 class HomeDetailPage extends StatelessWidget {
   final Item catalog;

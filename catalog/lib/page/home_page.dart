@@ -1,5 +1,6 @@
 import 'dart:convert';
 // import 'package:velocity_x/velocity_x.dart';
+import 'package:catalog/page/cart_page.dart';
 import 'package:catalog/page/homedeatailpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,10 @@ class _HomepageState extends State<Homepage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(CupertinoIcons.cart),
         backgroundColor: MyTheme.darkBluishColor,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => CartPage()));
+        },
       ),
       backgroundColor: MyTheme.creamColor,
       body: SafeArea(
