@@ -1,11 +1,13 @@
 import 'dart:convert';
 // import 'package:velocity_x/velocity_x.dart';
+// ignore: unused_import
+import 'package:catalog/model/cart.dart';
+import 'package:catalog/page/add_To_cart.dart';
 import 'package:catalog/page/cart_page.dart';
 import 'package:catalog/page/homedeatailpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:catalog/Theme/theme.dart';
 import 'package:catalog/model/catalog.dart';
 // import 'package:catalog/page/drawer.dart';
@@ -164,14 +166,7 @@ class CatalogItem extends StatelessWidget {
                     "\$${catalog.price}",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(MyTheme.darkBluishColor),
-                        shape: MaterialStateProperty.all(StadiumBorder()),
-                      ),
-                      onPressed: () {},
-                      child: Text('BUY'))
+                  AddToCart(catalog: catalog)
                 ],
               )
             ],
@@ -181,6 +176,8 @@ class CatalogItem extends StatelessWidget {
     );
   }
 }
+
+
 
 class CatalogImage extends StatelessWidget {
   final String image;
