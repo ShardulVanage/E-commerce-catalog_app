@@ -82,7 +82,7 @@ class CatalogHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Catalog App',
+          'Smart Catalog ',
           style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
         ),
         Text(
@@ -176,8 +176,6 @@ class CatalogItem extends StatelessWidget {
     );
   }
 }
-
-
 
 class CatalogImage extends StatelessWidget {
   final String image;

@@ -1,7 +1,8 @@
-import 'package:catalog/Theme/theme.dart';
+//import 'package:catalog/Theme/theme.dart';
 import 'package:catalog/model/cart.dart';
 //import 'package:catalog/model/catalog.dart';
 import 'package:flutter/material.dart';
+import 'package:pay/pay.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CartPage extends StatelessWidget {
@@ -23,8 +24,24 @@ class CartPage extends StatelessWidget {
   }
 }
 
-class _CartTotal extends StatelessWidget {
+class _CartTotal extends StatefulWidget {
+  @override
+  __CartTotalState createState() => __CartTotalState();
+}
+
+class __CartTotalState extends State<_CartTotal> {
   final _cart = CartModel();
+
+  final paymentItems = <PaymentItem>[];
+  @override
+  void initState() {
+    paymentItems.add(PaymentItem(
+        amount: _cart.totalPrice.toString(),
+        label: "SmartCatalog",
+        status: PaymentItemStatus.final_price));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,21 +53,31 @@ class _CartTotal extends StatelessWidget {
             "\$${_cart.totalPrice}",
             style: TextStyle(fontSize: 35),
           ),
-          SizedBox(
-            height: 40,
+          //  SizedBox(
+          //  height: 40,
+          //  width: 130,
+          //  child:// ElevatedButton(
+          //     style: ButtonStyle(
+          //       backgroundColor:
+          //           MaterialStateProperty.all(MyTheme.darkBluishColor),
+          //       shape: MaterialStateProperty.all(StadiumBorder()),
+          //     ),
+          //     onPressed: () {
+          //       ScaffoldMessenger.of(context).showSnackBar(
+          //           SnackBar(content: Text("buying not supported")));
+          //     },
+          //     child: Text('BUY')),
+          //),
+          GooglePayButton(
+            paymentConfigurationAsset: 'gpay.json',
+            paymentItems: paymentItems,
+            onPaymentResult: (data) {
+              print(data);
+            },
+            height: 50,
             width: 130,
-            child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(MyTheme.darkBluishColor),
-                  shape: MaterialStateProperty.all(StadiumBorder()),
-                ),
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("buying not supported")));
-                },
-                child: Text('BUY')),
-          )
+            type: GooglePayButtonType.order,
+          ),
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:catalog/page/SignupPage.dart';
 import 'package:catalog/page/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -112,6 +113,21 @@ class _LoginpageState extends State<Loginpage> {
                                     fontSize: 18),
                               ),
                       ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(foregroundColor: darkBluishColor)
+                    onPressed: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignupPage())),
+                    child: Text(
+                      "SignUp",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
                     ),
                   ),
                 ],
